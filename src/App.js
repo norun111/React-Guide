@@ -3,12 +3,45 @@ import './App.css';
 import Clock from './Clock/Clock'
 import Toggle from './Toggle/Toggle'
 
-
+// Welcome Component
 function Welcome(props){
 
 return <h1>Hello, {props.name}</h1>
 
 }
+
+// UserGreeting Component
+function UserGreeting(props){
+
+  return(
+    <div>
+      <h1>Welcome back!</h1>
+    </div>
+  )
+}
+
+// GuestGreeting Component
+function GuestGreeting(props){
+
+  return(
+    <div>
+      <h1>Please sign up!</h1>
+    </div>
+  )
+}
+
+function Greeting(props){
+
+  const isLoggedIn = props.isLoggedIn;
+  
+  if(isLoggedIn) {
+
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+
+
 
 class App extends React.Component {
 
@@ -47,6 +80,7 @@ class App extends React.Component {
           click={this.handleClick} // This binding is necessary to make `this` work in the callback
         />
        {person}
+       <Greeting isLoggedIn={false}>
       </React.Fragment>
     )
   } 
