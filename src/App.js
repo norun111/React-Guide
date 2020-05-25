@@ -42,11 +42,32 @@ function Greeting(props){
   return <GuestGreeting />;
 }
 
+function ListItem(props) {
+  return <li>{props.value}</li>
+}
+
+function NumberList(props){
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) => 
+  <ListItem
+    key={number.toString()}
+    value={number}
+  />
+  );
+  return(
+
+  <ul>{listItems}</ul>
+  );
+}
+
 class App extends React.Component {
 
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      numbers: [1,2,3,4,5]
+    }
   }
 
   state={
@@ -85,6 +106,9 @@ class App extends React.Component {
         isLoggedIn={false}
        />
        <LoginControl/>
+       <NumberList 
+        numbers={this.state.numbers}
+       />
       </React.Fragment>
     )
   } 
