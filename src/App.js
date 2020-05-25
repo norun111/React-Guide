@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Clock from './Clock/Clock'
 import Toggle from './Toggle/Toggle'
+import LoginControl from './LoginControl/LoginControl'
 
 // Welcome Component
 function Welcome(props){
@@ -41,8 +42,6 @@ function Greeting(props){
   return <GuestGreeting />;
 }
 
-
-
 class App extends React.Component {
 
   constructor(props){
@@ -79,10 +78,16 @@ class App extends React.Component {
         <Toggle
           click={this.handleClick} // This binding is necessary to make `this` work in the callback
         />
+
        {person}
-       <Greeting isLoggedIn={false}>
+
+       <Greeting 
+        isLoggedIn={false}
+       />
+
       </React.Fragment>
     )
   } 
 }
 export default App;
+
