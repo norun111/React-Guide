@@ -84,7 +84,7 @@ class App extends React.Component {
        <Greeting 
         isLoggedIn={false}
        />
-
+       <LoginControl/>
       </React.Fragment>
     )
   } 
