@@ -39,7 +39,7 @@ class App extends React.Component {
         />
         <Clock/>
         <Toggle
-          click={ ()=>this.handleClick() }
+          click={()=>this.handleClick() } // This binding is necessary to make `this` work in the callback
         />
        {person}
       </React.Fragment>
