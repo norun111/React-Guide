@@ -12,6 +12,11 @@ return <h1>Hello, {props.name}</h1>
 
 class App extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   state={
     date: new Date(),
     isToggle: false
@@ -39,7 +44,7 @@ class App extends React.Component {
         />
         <Clock/>
         <Toggle
-          click={()=>this.handleClick() } // This binding is necessary to make `this` work in the callback
+          click={this.handleClick} // This binding is necessary to make `this` work in the callback
         />
        {person}
       </React.Fragment>
