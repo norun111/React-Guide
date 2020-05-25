@@ -46,21 +46,14 @@ class LoginControl extends React.Component {
 
   render(){
 
-    let button
-  if(this.state.isSignedIn===true){
-    button = <LogoutButton
-              click={() => this.handleLogout()}
-            />
-
-  }else{
-    button = <LoginButton
-              click={() => this.handleLogin()}
-            />
-   }
-
     return(
       <React.Fragment>
-        {button}
+
+        {this.state.isSignedIn
+         ? <LogoutButton click={() => this.handleLogout()} />
+         : <LoginButton click={() => this.handleLogin()} />
+        }
+        
       </React.Fragment>
     )
   }
